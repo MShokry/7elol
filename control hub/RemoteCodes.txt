@@ -1,0 +1,1187 @@
+IR Remote Control Codes In Hexadecimal
+---------------------------------------------------------------------------------------------
+
+NEC protocol: 1/4 or 1/3 duty cycle 38khz (21 pulses per bit approx)
+9ms mark then 4.5ms space	header
+560us mark, 560us space		zero
+560us mark, 1.69ms space	one
+4 bytes, LSB first
+560us mark - long space		stop bit
+option 1 = repeat every 110ms (if wanted), but just 9ms mark, 2.25 space, 560us mark (no data)
+option 2 = repeat full message
+00ff = default address, custom codes available, byte 4 is inverse of byte 3
+---------------------------------------------------------------------------------------------
+
+Humax PVR9200T - NEC Protocol but 2 Byte Address 0031
+format is bytes 1,2 address 0031, byte 3 code as below, byte 4 inverse of byte 3
+
+00	STANDBY / ON
+02	SOURCE
+03	1
+04	2
+05	3
+06	4
+07	5
+08	6
+09	7
+0A	8
+0B	9
+0C	0
+0D	TV/RADIO
+0E	MENU
+11	UP
+12	LEFT
+13	OK
+14	RIGHT
+15	DOWN
+16	EXIT
+17	GAME
+18	MUTE
+1A	YELLOW
+1B	GUIDE
+1C	RED
+1D	GREEN
+1E	BLUE
+1F	VOL +
+40	VOL -
+41	BACK
+42	OPT +
+43	i
+44	SUBTITLES
+45	AUDIO SELECT
+46	PICTURE IN PICTURE
+47	PIP SWAP
+48	PIP CYCLE
+49	CH +
+4A	CH -
+4B	TEXT
+4D	LIST
+4E	WIDE
+60	PLAY
+61	RECORD
+62	SLOW MOTION
+63	STOP
+64	FAST FORWARD
+65	REWIND
+66	BACK N SECONDS
+67	FORWARD N SECONDS
+68	LIST RESERVATIONS
+69	A-B
+6A	ADD TO FAVOURITES
+6B	FAVOURITE CHANNELS
+6C	PAUSE
+6D	PIP CH+
+6E	PIP CH-
+(70)	discrete power off (no key on remote)
+--------------------------------------------------------------------------------------------
+
+Air Conditioner Remote NEC protocol 006F
+format is bytes 1,2 address 006F, byte 3 code as below, byte 4 inverse of byte 3
+02	temp +
+04	temp -
+05	timer
+06	func
+08	fan speed
+09	power on/off
+0a	sleep
+---------------------------------------------------------------------------------------------
+
+Relisys TV Remote NEC protocol 00ED
+format is bytes 1,2 address 00ED, byte 3 code as below, byte 4 inverse of byte 3
+0 - 9	buttons 0 to 9
+0a	'100'
+0b	sleep
+0c	pip/pop
+0d	red
+0e	green
+0f	power
+10	menu
+12	mute
+13	disp
+14	wide/pos
+15	source
+16	swap
+17	recall
+18	favourite
+19	blue
+1a	vol +
+1b	ch +
+1c	mts
+1d	yellow
+1e	vol -
+1f	ch -
+40	ccd/text
+41	vc/ind
+42	video
+43	audio
+---------------------------------------------------------------------------------------------
+
+Laptop pc card sized Remote NEC protocol 00F7
+format is bytes 1,2 address 00F7, byte 3 code as below, byte 4 inverse of byte 3
+00	power
+01	language
+02	back
+03	left
+04	ok
+05	right
+06	previous/ch-
+07	down
+08	next/ch+
+09	stop
+0a	play/pause
+0b	vol+
+0c	dvd menu
+0d	vol-
+---------------------------------------------------------------------------------------------
+
+Multimedia USB Hard Disk Player
+NEC protocol 00ff xx (comp)
+
+00	preview on/off
+01	vol+
+02	down
+03	up
+04	menu
+05	stop
+06	next
+07	previous
+08	sf
+09	rewind
+0a	setup
+0b	video
+0c	display
+0d	repeat
+0e	left
+0f	angle
+10	audio
+11	p/n
+12	dvd play
+13	mode
+14	mute
+15	sr
+16	zoom
+17	music
+18	play/pause
+19	interval time
+1a	right
+1b	slide show
+1c	power
+1d	forward
+1e	enter
+1f	vol-
+43	sub-t
+4a	OTB
+---------------------------------------------------------------------------------------------
+
+Nikkai ipod base Remote NEC protocol 00ff
+format is bytes 1,2 address 00ff, byte 3 code as below, byte 4 inverse of byte 3
+01	vol+
+02	treble
+03	vol-
+09	prev
+0a	bass
+0b	play/pause
+0d	next
+12	menu
+13	power
+19	down
+1d	up
+1e	enter
+---------------------------------------------------------------------------------------------
+
+Cello DVD recorder Remote NEC protocol 00FF
+format is bytes 1,2 address 00FF, byte 3 code as below, byte 4 inverse of byte 3
+00	play
+01	pause
+02	stop
+03	record
+04	next chapter
+05	prev chapter
+06	fast forward
+07	fast rewind
+08	goto
+09	timer
+0a	0
+0b	9
+0c	8
+0d	7
+0e	6
+0f	5
+10	4
+11	3
+12	2
+13	1
+14	disc oper
+15	vol -
+16	ch -
+17	mute
+18	menu
+19	vol +
+1a	ch +
+1b	edit
+1c	title
+1d	right
+1e	down
+1f	setup
+40	standby/on
+41	prog
+42	left
+43	add/clear
+44	display
+45	tv
+46	p/n
+47	select
+48	audio
+49	subtitle
+4a	up
+4c	repeat
+4d	a-b
+50	zoom
+51	slow
+54	return
+55	angle
+58	p/i
+59	av
+5c	open/close
+5d	random
+---------------------------------------------------------------------------------------------
+
+Broken DVD player Remote NEC protocol 00FF - chip PT2222-002 (PTC)
+format is bytes 1,2 address 00FF, byte 3 code as below, byte 4 inverse of byte 3
+80	5
+81	1
+82	4
+83	2
+84	title menu
+85	key lock
+86	subtitle menu
+87	pbc
+88	fast rewind
+89	slow/r
+8a	return
+8b	play
+8c	0
+8d	7
+8e	digest
+8f	8
+90	left
+91	display
+92	search
+93	enter
+94	repeat
+95	prev chapter
+96	mute
+97	program
+c0	6
+c1	3
+c2	angle
+c3	3d
+c4	audio menu
+c5	standby/on
+c6	dvd menu
+c7	open/close
+c8	fast forward
+c9	stop
+cb	slow/f
+ca	next chapter
+cc	clear
+cd	9
+ce	zoom
+cf	audio mode
+d0	down
+d1	up
+d2	right
+d3	setup
+d4	a-b
+d5	random
+d6	bookmark
+d7	pause/step
+
+---------------------------------------------------------------------------------------------
+
+Panasonic TV Remote CT-878 NEC protocol 02fd
+format is bytes 1,2 address 02fd, byte 3 code as below, byte 4 inverse of byte 3
+00  0
+01  menu/enter
+08  mute
+10  8
+1a  exit
+20  4
+2a  16:9
+30  reset
+38  recall
+40  2
+48  power
+50  100
+58  vol+
+60  6
+78  vol-
+80  1
+90  9
+98  FAV up
+a0  5
+a8  sleep
+b8  FAV down
+c0  3
+c6  1/2
+c8  MTS
+d8  ch+
+e0  7
+e8  ch rtn
+ea  cap/text
+f0  TV/Video
+f8  ch-
+
+---------------------------------------------------------------------------------------------
+
+Sky Remote in tv mode with Sharp programmed (121)
+tv, select+red until 2 blinks, 121, select
+---------------------------------------------------------------------------------------------
+
+Sharp TV Remote NEC protocol 0505
+format is bytes 1,2 address 0505, byte 3 code as below, byte 4 inverse of byte 3
+00	step
+01	tv/vcr
+04	1
+05	2
+06	3
+08	4
+09	5
+0a	6
+0c	7
+0d	8
+0e	9
+10	prog -
+11	0
+12	prog +
+13	right
+14	rec
+15	stop
+16	angle
+17	left
+18	reverse
+19	play
+1a	forward
+1d	return
+1e	info
+1f	ez view
+22	subtitle
+28	view vcr
+2b	mark
+2c	up
+2d	down
+31	clear
+32	open/close
+3a	speed
+3d	audio
+40	trk -
+43	ok (enter)
+45	timer
+48	on/off
+55	view dvd
+59	input sel
+60	disc menu
+63	trk +
+66	mode
+68	menu
+---------------------------------------------------------------------------------------------
+
+Gear4 iPOD remote - NEC Protocol - Address 10ee
+format is byte1,2 address 10ee, byte 3 code as below, byte 4 inverse of code
+e.g. "on/off" is 10ee00ff
+
+00	on/off
+04	album up
+05	playlist up
+06	chapter up
+08	album down
+09	playlist down
+0a	chapter down
+0c	previous
+0d	play/pause
+oe	next
+10	vol -
+11	mute
+12	vol +
+14	shuffle
+15	repeat
+16	backlight
+
+---------------------------------------------------------------------------------------------
+
+Acoustic Solutions - NEC Protocol - Address 40bf
+format is byte1 address 40, byte 2 inverse of byte 1 (bf),
+byte 3 code as below, byte 4 inverse of code
+e.g. "COAXIAL" is 40bf1be4
+
+04	WOOFER-
+09	STANDBY
+0a	BASS +	
+0c	VOLUME DOWN
+0d	TEST
+0e	BYPASS
+11	AUX
+12	SURR +
+14	TREBLE -
+15	MUTE
+16	WOOFER +
+17	CEN +
+19	OPTICAL
+1a	VOLUME UP
+1b	COAXIAL
+1c	BASS -
+1d	DSP MODE
+1e	TREBLE +
+1f	LISTEN MODE
+40	CEN -
+4c	SURR -
+---------------------------------------------------------------------------------------------
+
+Freecom USB TV remote	NEC protocol 807f xx (comp)
+
+01	mute
+02	vol -
+03	ch -
+04	1
+05	2
+06	3
+07	4
+08	5
+09	6
+0a	7
+0c	zoom
+0d	0
+0e	jump
+12	on/off
+1a	vol +
+1b	8
+1e	ch +
+1f	9
+---------------------------------------------------------------------------------------------
+
+Metronic Satellite Receiver D60324
+NEC protocol 807f xx (comp)
+00	4
+01	1
+02	3
+03	power
+04	7
+05	5
+06	6
+07	audio
+08	info
+09	8
+ob	sat
+0c	up	(ch+)
+0d	0
+0e	lock
+0f	exit
+10	right	(vol+)
+11	down	(ch-)
+12	red	(back)
+13	OK
+14	2
+15	P+
+16	P-
+18	mute
+19	left	(vol-)
+1a	black	(MOT)
+1b	fav
+1C	EPG
+1d	lang
+1e	menu
+1f	TV/radio
+
+---------------------------------------------------------------------------------------------
+
+Sagem Freeview Remote NEC protocol 875e
+format is bytes 1,2 address 875e, byte 3 code as below, byte 4 inverse of byte 3
+00-09	0 to 9
+0a	exit
+0b	up
+0c	down
+0f	mute
+11	menu
+12	power
+13	still
+14	back
+15	ok
+16	red
+17	green
+18	yellow
+19	blue
+1b	left
+1c	right
+1d	text
+1e	info
+1f	subtitles
+20	audio select
+21	radio
+24	input source select
+25	guide
+26	list
+---------------------------------------------------------------------------------------------
+Smiths Timeguard 4 way light dimmer remote 38kHz
+IC is PT2248 16 pin, ceramic resonator is CRB 455 E (455 KHz) 
+1	0v
+2	ceramic resonator + cap to ground
+3	ceramic resonator + cap to ground
+4	button 4	(bit 1)
+5	button 3	(bit 2)
+6	button 2	(bit 3)
+7	button 1	(bit 4)
+8	nc
+9	nc
+10	button common and diode +
+11	nc
+12	nc
+13	diode - to pin 10
+14	nc
+15	transistor 1 base, darlington pair with t2 from +3v, IR LED to 0v
+16	+3v
+
+12 bits are sent: e.g. bedroom 000100001000, computer room 000100000100
+0 0 0	3 bits code c1, c2, c3 - always 0 for smiths
+1 0 0	H S1, S2 - smiths has H always set for continuous - 2 sets of single shot unused
+butt 4	1 if button pressed - can press any combination
+butt 3
+butt 2	(bedroom)
+butt 1	(computer room)
+0	spare button not used
+0	spare button not used
+units are a (422us) and 3a(1266us), where a=192/455000 (assuming 455kHz oscillator) = 422us
+0 = mark  a followed by space 3a
+1 = mark 3a followed by space  a
+---------------------------------------------------------------------------------------------
+
+sony av system Remote 40kHz 7 bits command (LSB first) then 5 bits address
+this is 12 bit, there are also 15 bit and 20 bit versions of Sony protocol
+
+tv		address=01
+vcr1		addrsss=02
+vcr2		addrsss=03
+laser disc	addrsss=06
+surround sound	address=0c
+tuner		address=0d
+amp		address=10 (cassette / tuner)
+cd player	address=11
+equaliser	address=12
+dvd		address=1a
+
+01 10	tv ch +
+01 11	tv ch -
+01 12	tv vol +
+01 13	tv vol -
+01 15	tv on/off
+01 25	tv/video
+
+0c 69	surround function
+
+0d 0e	tuner memory
+0d 0f	tuner band
+
+10 12	vol +
+10 13	vol -
+10 14	muting
+10 15	on/off
+10 4d	dimmer
+10 60	sleep
+10 6e	sound field
+10 74	display
+10 77	amp menu
+
+12 4a	eq test tone
+12 4e	eq rear +
+12 4f	eq rear -
+12 54	eq center +
+12 55	eq center -
+12 56	eq woofer +
+12 57	eq woofer -
+
+1a 0-8	dvd 1 to 9
+1a 09	dvd 10/0
+1a 0c	dvd enter
+1a 0d	dvd >10
+1a 0e	dvd return
+1a 0f	dvd clear
+1a 1a	dvd title
+1a 1b	dvd menu
+1a 28	dvd time
+1a 2b	dvd pmode
+1a 2c	dvd repeat
+1a 30	dvd prev
+1a 31	dvd next
+1a 32	dvd play
+1a 33	dvd reverse
+1a 34	dvd forward
+1a 38	dvd stop
+1a 39	dvd pause
+1a 53	dvd setup
+1a 54	dvd display
+1a 5b	dvd name
+1a 60	dvd slow reverse
+1a 61	dvd slow forward
+1a 63	dvd subtitle
+1a 64	dvd audio
+1a 65	dvd angle
+1a 78	dvd up
+1a 79	dvd down
+1a 7a	dvd left
+1a 7b	dvd right
+1a 7c	dvd enter
+---------------------------------------------------------------------------------------------
+
+sony TV Remote 40kHz 7 bits command (LSB first) then 5 bits address
+there are also 15 bit and 20 bit versions of Sony protocol
+
+40kHz 7 bits command (LSB first) then 5 bits address
+2.4ms mark=start
+0.6sp, 0.6 mark = 0
+0.6sp, 1.2 mark = 1
+
+tv		address=01
+vcr1		addrsss=02
+vcr2		addrsss=03
+radio/cd	addrsss=04
+laser disc	addrsss=06
+surround sound	address=0c
+tuner		address=0d
+amp		address=10 (cassette / tuner)
+cd player	address=11
+equaliser	address=12
+dvd		address=1a
+
+01 0-8	tv 1 to 9
+01 09	tv 0
+01 10	tv ch +
+01 11	tv ch -
+01 12	tv vol +
+01 13	tv vol -
+01 14	tv mute
+01 15	tv on/off
+01 1d	-/--
+01 25	input select
+01 33	right
+01 34	left
+01 38	tv select
+01 3a	channel info
+01 3b	return
+01 3f	text
+01 5b	pip
+01 5f	swap
+01 60	menu
+01 65	ok
+01 67	pip ch+
+01 74	up
+01 75	down
+
+03 2b	clock
+03 4c	red
+03 4d	green
+03 4e	yellow
+03 4f	blue
+
+04 5b	subtitles
+04 60	hold
+04 6c	.
+
+(under flap)
+02 xx	vtr1
+07 xx	vtr2
+0b xx	vtr3
+19 xx	vtr4
+1a xx	dvd
+
+xx 10	ch +
+xx 11	ch -
+xx 1d	record (not dvd)
+xx 32	play
+xx 33	rewind
+xx 34	forward
+xx 38	stop
+xx 39	pause
+---------------------------------------------------------------------------------------------
+TR Kit universal remote programmed with 'C212' (8ch remote receiver kit)
+address 01 = sony TV Remote
+40kHz 7 bits command (LSB first) then 5 bits address
+2.4ms mark=start
+0.6sp, 0.6 mark = 0
+0.6sp, 1.2 mark = 1
+
+00	1
+01	2
+02	3
+03	4
+04	5
+05	6
+06	7
+07	8
+08	9
+09	0
+0c	10+
+10	P+
+11	P-
+12	V+
+13	V-
+14	mute
+15	power
+
+to blink out current code:	ID, 1 (n blinks), 2 (n blinks), 3 (n blinks)
+      to set current code:	Cnnn (1 blink valid, 5 blinks error)
+
+valid codes 100 to 346
+203	NEC 8057
+204	NEC 38c7	(received as single on/off)
+210	ITT protocol? short pulse low power protocol
+
+212	sony a01 sony tv
+
+213	single on/off
+214	single on/off
+215	single on/off
+216	?
+217
+218	single on/off
+221	NEC 50af
+226	NEC 40bf (but keys wrong for acoustic solutions)
+231	single button on/off
+301	JVC 43nn43nn
+
+---------------------------------------------------------------------------------------------
+
+sony tape/cassette/radio Remote 40kHz 7 bits command (LSB first) then 5 bits address
+there are also 15 bit and 20 bit versions of Sony protocol
+
+04 0-8	1 to 9
+04 0c	0/10
+04 0d	>10
+04 11	mode
+04 12	vol+
+04 13	vol-
+04 15	operate
+04 2a	mega expand
+04 30	rewind
+04 31	forward
+04 32	play
+04 38	stop
+04 39	pause
+04 3f	mega bass
+04 47	function
+04 60	sleep
+04 6f	band
+04 73	tune+
+04 74	tune-
+---------------------------------------------------------------------------------------------
+
+Sky Remote in TV mode with Sony programmed (0000)
+tv, select+red until 2 blinks, tv, 0000, select
+
+01 0-8	1 to 9
+01 09	0
+01 05	sky	(when 'sky' pressed - select ch 6 and return to sky mode)
+01 10	ch +
+01 11	ch -
+01 12	vol +
+01 13	vol -
+01 14	mute
+01 15	on/off
+01 25	help
+01 38	backup
+01 3a	info
+01 3f	text
+
+03 4a	select
+03 4c	red
+03 4d	green
+03 4e	yellow
+03 4f	blue
+
+04 3d	play
+---------------------------------------------------------------------------------------------
+
+Philps pet portable DVD player Remote RC6 mode 0 protocol address04
+36kHz 25% to 50% duty cycle (16 pulses for 50%, 8 pulses for 25%)
+format is byte 1 address 04, byte 2 code as below
+00-09	numbers 0-9
+0d	mute
+10	vol +
+11	vol 1
+1d	repeat
+20	next track
+21	previous track
+28	forward
+29	back
+2c	play
+30	pause
+31	stop
+3b	a>b
+48	osd
+4b	subtitle
+4e	language
+50	audio
+58	up
+59	down
+54	menu
+5a	left
+5b	right
+5c	ok
+82	setup
+83	return
+85	angle
+91	slow
+d3	play mode
+f7	zoom
+---------------------------------------------------------------------------------------------
+
+HP PCI express remote control for Laptop
+RC6 mode 6 - iffy decode but maybe 002208xx82 or 002308xx82
+18	power
+1c	mute
+1e	i
+20	vol +
+22	vol -
+24	page up
+26	page down
+28	fast forward
+2a	fast rewind
+2c	play / pause
+32	stop
+34	next
+36	previous
+3c	up
+3e	down
+40	left
+42	right
+44	ok
+46	return
+48	dvd
+8e	music
+9e	screen select
+---------------------------------------------------------------------------------------------
+
+;sky remotes use RC6-6-20 protocol
+36KHz 25% to 50% duty cycle
+	leader	2.666ms mark (6t), 889us space (2t)
+	0	444us space (1t), 444us mark (1t)
+	1	444us mark (1t), 444us space (1t)
+trailer 0	889us space (2t), 889us mark (2t)
+trailer 1	889us mark (2t), 889us space (2t)
+
+leader, start bit = 1, mb2-mb1-mb0 = 6 for mode 6, trailer bit (toggle), 20 bits data msb first, signal free time (6t) space
+
+
+BUTTON	SKY		SKY+		Commander	KBD
+0	00 000 41fff	00 c00 41ff8	00 d00 41ffa	00 0f6 41fff
+1	00 001 41fff	00 c01 41ff8	00 d01 41ffa	00 0f7 41fff
+
+Sky (not sky+)
+00001-0000a	1-0
+0000c		on/off
+00020		ch+
+00021		ch-
+0003c		text
+00058		up
+00059		down
+0005a		left
+0005b		right
+0005c		select
+0006d		red
+0006e		green
+0006f		yellow
+00070		blue
+0007d		box office
+0007e		services
+00080		sky
+00081		help
+00083		backup
+000cb		i
+000cc		tv guide
+000f5		interactive
+
+Open keyboard (Sky, not Sky+)
+
+0000c		on/off
+00020		ch+
+00021		ch-
+0005d		left
+0005e		right
+0005f		up
+00060		down
+00061		select
+00062		help
+00063		text
+00064		i
+00065		backup
+00066		red
+00067		green
+00068		yellow
+00069		blue
+0007d		box office
+0007e		services
+00080		sky
+00084		tv/sat
+0008d		esc
+0008f		return
+00091		space
+00096-000af	a-z
+000b0-000c9	A-Z
+000cc		tv guide
+000e8		~
+000e9		#
+000ea		<
+000eb		>
+000f1		|
+000f5		interactive
+000f6-000ff	0-9
+
+Sky+ commander buttons - cover open
+00206		on/off
+00220		ch+
+00221		ch-
+0025d		left
+0025e		right
+0025f		up
+00260		down
+00261		select
+00262		help
+00263		text
+00264		i
+00265		backup
+00266		red
+00267		green
+00268		yellow
+00269		blue
+00280		sky
+00288		home
+00289		del
+0028a		end
+0028b		pg up
+0028c		pg dn
+0028d		esc
+0028e		tab
+0028f		return
+00290		bs
+00291		space
+00296-002af	a to z
+002b0-002c9	A to Z
+002d1		€
+002d2		!
+002d3		"
+002d4		£
+002d5		$
+002d6		%
+002d7		^
+002d8		&
+002d9		*
+002da		(
+002db		)
+002dc		_
+002dd		-
+002de		+
+002df		=
+002e0		{
+002e1		}
+002e2		[
+002e3		]
+002e4		:
+002e5		;
+002e6		@
+002e7		'
+002e8		~
+002e9		#
+002ea		<
+002eb		>
+002ee		?
+002f0		\
+002f5		intactv
+002f6-002ff	0 to 9
+
+Sky+ commander buttons - cover closed
+00c01-00c0a	1-0
+00c0c		on/off
+00c20		ch+
+00c21		ch-
+00c24		pause
+00c28		fast forward
+00c3c		text
+00c3d		rewind
+00c3e		play
+00c3f		stop
+00c40		record
+00c58		up
+00c59		down
+00c5a		left
+00c5b		right
+00c5c		select
+00c6d		red
+00c6e		green
+00c6f		yellow
+00c70		blue
+00c7d		box office
+00c7e		services
+00c80		sky
+00c81		help
+00c83		backup
+00ccb		i
+00ccc		tv guide
+00cf5		interactive
+
+-----------------------------------------------------------------------------------------
+
+Altec Lanseng im7 uses RC5 protocol 14 bits 36kHz 1.778ms per high/low bit,
+24.889ms whole command
+0=0.889ms mark, 0.889ms space		1=0.889ms space, 0.889ms mark
+start bit = 1 	(only second half of bit (mark) is detectable as space is lost in no data period
+start bit = 1	(i.e. two start bits)
+toggle	  = x	alternates between key presses to distinguish continued press
+0	msb
+1
+1		5 bit address of 0f hex
+1
+1	lsb
+x	msb
+x
+x
+x		6 bit command vol- = 11 hex
+x
+x	lsb
+
+10	vol+
+11	vol-
+16	bass+
+17	bass-
+18	treble+
+19	treble-
+20	forward
+21	rewind
+35	play/pause
+3d	on/off
+---------------------------------------------------------------------------------------------
+
+RC5	address	1e	windows mutimedia remote (decode below is iffy!) Hauppauge
+
+00-09	0-9
+0a	*/text
+0b	red
+0c	radio
+0d	i/menu
+0e	#/subtitles
+0f	mute
+10	vol+
+11	vol-
+12	prev ch
+14	up
+15	down
+16	left
+17	right
+18	videos
+19	music
+1a	pictures
+1b	guide
+1c	tv
+1e	next/skip
+1f	back/exit
+20	ch+
+21	ch-
+24	previous/replay
+25	ok
+29	blue
+2e	green
+30	pause
+32	reverse
+34	forward
+35	play
+36	stop
+37	rec
+38	yellow
+3b	home/go
+3d	power
+
+---------------------------------------------------------------------------------------------
+Aiwa car radio		0=t mark t space, 1= 2t mark t space (15 data bits) xx21
+mark	space		t is approx 0.6 ms
+4t	t			preamble
+t 	t	0	\	example for vol+ 2421 hex
+2t	t	1	 | 2
+t	t	0	/
+t	t	0	\
+2t	t	1	 | 4
+t	t	0	 |
+t	t	0	/
+t	t	0	\
+t	t	0	 | 2	last 8 bits always 21 (00100001)
+2t	t	1	 |
+t	t	0	/
+t	t	0	\
+t	t	0	 | 1
+t	t	0	 |
+2t	99t	1	/
+
+0a	DSPL
+14	ATT
+16	SEEK
+24	VOL+
+26	PRESET-
+31	SOURCE
+56	SEEK-
+58	OFF
+64	VOL-
+66	PRESET+
+71	MODE
+---------------------------------------------------------------------------------------------
+
+BTC 5113 IR keyboard/mouse - all timings approx
+about 38kHz, 2 messages with about 40ms gap between messages
+repeat forever if key held down
+
+L = 1.2mS mark, 1.2 mS space (leader)
+0 =  .4mS mark,  .4 mS space
+1 =  .4ms mark, 1.2 ms space
+? =  .4mS mark, 3   mS space (shown x below)
+G =  .4mS mark, 40  mS space (40mS gap)
+
+0
+1	L0010001x1100	G	L00101x11
+2	L0010001x00x0	G	L00101x00
+3
+4
+5
+6
+7
+8
+9
+
+
+
+---------------------------------------------------------------------------------------------
+
+Address List
+NEC	0031	Humax PVR9200T
+NEC	006f	Air Conditioner
+NEC	00ED	Relisys TV
+NEC	00f7	Laptop pc card sized Remote
+NEC	00ff	default address (Cello DVD recorder)
+NEC	00ff	default address (HDD media player)
+NEC	00ff	default address (nikkai ipod player)
+NEC 02fd    Toshiba
+NEC	0505	sharp TV
+NEC	10ee	Gear4 iPod dock
+NEC	40bf	acoustic solutions surround sound
+NEC	807f	freecom USB tv stick (given to Rod)
+NEC	807f	metronic satellite receiver
+NEC	875E	sagem freeview receiver
+RC5	0f	    im7
+RC5	1e	    windows mutimedia remote
+RC6 04      PET DVD player
+sony	01	tv		        address=01
+sony	02	vcr1		    addrsss=02
+sony	03	vcr2		    addrsss=03
+sony	04	radio/cd     	addrsss=04
+sony	06	laser disc    	addrsss=06
+sony	0c	surround sound	address=0c
+sony	0d	tuner		    address=0d
+sony	10	amp		        address=10 (cassette / tuner)
+sony	11	cd player	    address=11
+sony	12	equaliser	    address=12
+sony	13	dvd		        address=1a
+
